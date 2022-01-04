@@ -1,7 +1,7 @@
-package hello.hello.spring.controller;
+package hello.hellospring.controller;
 
-import hello.hello.spring.domain.Member;
-import hello.hello.spring.service.MemberService;
+import hello.hellospring.service.MemberService;
+import hello.hellospring.domain.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,12 +21,12 @@ public class MemberController {
     }
 
     @GetMapping("/members/new")
-    public String createForm(){
+    public String createForm() {
         return "members/createMemberForm";
     }
 
     @PostMapping("/members/new")
-    public String create(MemberForm form){
+    public String create(MemberForm form) {
         Member member = new Member();
         member.setName(form.getName());
 
@@ -36,9 +36,9 @@ public class MemberController {
     }
 
     @GetMapping("/members")
-    public String list(Model model){
+    public String list(Model model) {
         List<Member> members = memberService.findMembers();
-        model.addAttribute("members",members);
+        model.addAttribute("members", members);
         return "members/memberList";
     }
 
